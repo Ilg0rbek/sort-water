@@ -1,0 +1,34 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-image: url("./assets/bg.jpeg");
+    object-fit: cover;
+    background-position: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.buttles_wrapper {
+    margin: 100px auto;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.buttle {
+    height: 140px;
+    width: 30px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background-color: rgb(171, 229, 229);
+}
+
+.item {}
+
+.active {
+    margin-bottom: 20px;
+}
