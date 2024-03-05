@@ -1,38 +1,33 @@
-let buttle = document.getElementById("1");
-
-const active = () => {
-  console.log("click");
-  buttle.classList.add("active");
-};
+let wrapper = document.getElementById("buttles_wrapper");
 
 let colors = [
   {
     id: 1,
-    yellow: "#FFFF00",
+    color: "#FFFF00",
   },
   {
     id: 2,
-    red: "#E20038",
+    color: "#E20038",
   },
   {
     id: 3,
-    purple: "#7100E2",
+    color: "#7100E2",
   },
   {
     id: 4,
-    orange: "#FF7F00",
+    color: "#FF7F00",
   },
   {
     id: 5,
-    green: "#80E209",
+    color: "#80E209",
   },
   {
     id: 6,
-    light_purple: "#A868D9",
+    color: "#A868D9",
   },
   {
     id: 7,
-    blue: "#B3E2CB",
+    color: "#B3E2CB",
   },
 ];
 
@@ -81,4 +76,23 @@ const generateButtles = () => {
   return buttles;
 };
 
-console.log(generateButtles());
+const root = () => {
+  let res = generateButtles();
+  let buttle = "";
+
+  for (let item of res) {
+    let { id, data } = item;
+    let str = "";
+    for (let val of data) {
+      str += `<div class="item" style="background-color: ${
+        val.color
+      }; height: calc(100%/${data.length}); width: 100%; bottom: 0; ${
+        val?.color ? "border-bottom: 0.4px solid black" : ""
+      }"></div>
+      `;
+    }
+    buttle += `<div class="buttle">${str}</div>`;
+  }
+  wrapper.innerHTML = buttle;
+};
+root();

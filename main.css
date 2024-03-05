@@ -20,14 +20,18 @@ body {
 }
 
 .buttle {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
     height: 140px;
     width: 30px;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-    background-color: rgb(171, 229, 229);
+    overflow: hidden;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: white;
+    box-sizing: border-box;
+    padding-top: 8px;
 }
-
-.item {}
 
 .active {
     margin-bottom: 20px;
