@@ -57,6 +57,7 @@ const generateButtles = () => {
     buttles.push({
       id: buttles.length + 1,
       data: empty[i],
+      isActive: false,
     });
   }
 
@@ -69,15 +70,33 @@ const generateButtles = () => {
       let random_colors = generateNumber(colors.length);
       res.push(colors[random_colors]);
     }
-    buttles.push({ id: buttles.length + 1, data: res });
+    buttles.push({ id: buttles.length + 1, data: res, isActive: false });
     count--;
   }
 
   return buttles;
 };
 
+let res = generateButtles();
+
+let activesId = [];
+const isActive = (id) => {
+  let findPassive = res.filter((val) => val.id == id);
+  findPassive[0].isActive = !findPassive[0].isActive;
+
+  activesId.push(findPassive[0].id);
+
+  if (activesId.length > 1) {
+    let passiveId = activesId.shift();
+    
+    let findActive = res.filter((val) => val.id == passiveId);
+    findActive[0].isActive = !findActive[0].isActive;
+  }
+
+  console.log("res", res);
+};
+
 const root = () => {
-  let res = generateButtles();
   let buttle = "";
 
   for (let item of res) {
@@ -91,7 +110,7 @@ const root = () => {
       }"></div>
       `;
     }
-    buttle += `<div class="buttle">${str}</div>`;
+    buttle += `<div onclick="isActive(${item.id})" class="buttle">${str}</div>`;
   }
   wrapper.innerHTML = buttle;
 };
