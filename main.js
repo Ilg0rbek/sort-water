@@ -87,13 +87,19 @@ const isActive = (id) => {
   activesId.push(findPassive[0].id);
 
   if (activesId.length > 1) {
-    let passiveId = activesId.shift();
+
+    let selectButtles = res.filter(val => val.id == activesId[0] || val.id == activesId[1] ) 
+
+    console.log("selectButtles", selectButtles);
+
+    // let passiveId = activesId.shift();
     
-    let findActive = res.filter((val) => val.id == passiveId);
-    findActive[0].isActive = !findActive[0].isActive;
+    // let findActive = res.filter((val) => val.id == passiveId);
+    // findActive[0].isActive = !findActive[0].isActive;
+
+
   }
 
-  console.log("res", res);
 };
 
 const root = () => {
